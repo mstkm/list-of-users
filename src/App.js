@@ -96,14 +96,15 @@ const App = () => {
   }
 
   // Handle choose theme
-  const [theme, setTheme] = React.useState({
-    headerColor: "",
-    headerTextColor: "",
-    detailColor: "",
-    detailTextColor: ""
-  })
+  const [headerColor, setHeaderColor] = React.useState('')
+  const [headerTextColor, setHeaderTextColor] = React.useState('')
+  const [detailColor, setDetailColor] = React.useState('')
+  const [detailTextColor, setDetailTextColor] = React.useState('')
   const handleChooseTheme = (e) => {
-    setTheme(chooseTheme(e.target.value))
+    setHeaderColor(chooseTheme(e.target.value).headerColor)
+    setHeaderTextColor(chooseTheme(e.target.value).headerTextColor)
+    setDetailColor(chooseTheme(e.target.value).detailColor)
+    setDetailTextColor(chooseTheme(e.target.value).detailTextColor)
   }
 
   return (
@@ -158,19 +159,19 @@ const App = () => {
     <div className='mx-10'>
       <table className='w-full'>
         <tbody className='border-[1px]'>
-          <tr className={`bg-[${theme.headerColor}]`}>
-            <th className={`border-[1px] border-black text-start pl-2 text-[${theme.headerTextColor}]`}>ID</th>
-            <th className={`border-[1px] border-black text-start pl-2 text-[${theme.headerTextColor}]`}>Email</th>
-            <th className={`border-[1px] border-black text-start pl-2 text-[${theme.headerTextColor}]`}>Marital Status</th>
-            <th className={`border-[1px] border-black text-start pl-2 text-[${theme.headerTextColor}]`}>Programming Languages</th>
+          <tr className={`bg-[${headerColor}]`}>
+            <th className={`border-[1px] border-black text-start pl-2 text-[${headerTextColor}]`}>ID</th>
+            <th className={`border-[1px] border-black text-start pl-2 text-[${headerTextColor}]`}>Email</th>
+            <th className={`border-[1px] border-black text-start pl-2 text-[${headerTextColor}]`}>Marital Status</th>
+            <th className={`border-[1px] border-black text-start pl-2 text-[${headerTextColor}]`}>Programming Languages</th>
           </tr>
           {dataUsers.map((user, index) => {
               return (
-                <tr key={String(index)} className={`bg-[${theme.detailColor}]`}>
-                  <td className={`border-[1px] border-black text-start pl-2 text-[${theme.detailTextColor}]`}>{user.id}</td>
-                  <td className={`border-[1px] border-black text-start pl-2 text-[${theme.detailTextColor}]`}>{user.email}</td>
-                  <td className={`border-[1px] border-black text-start pl-2 text-[${theme.detailTextColor}]`}>{user.isMarried ? 'Married' : 'Not Married Yet'}</td>
-                  <td className={`border-[1px] border-black text-start pl-2 text-[${theme.detailTextColor}]`}>{user.programmingLanguages.join(', ')}</td>
+                <tr key={String(index)} className={`bg-[${detailColor}]`}>
+                  <td className={`border-[1px] border-black text-start pl-2 text-[${detailTextColor}]`}>{user.id}</td>
+                  <td className={`border-[1px] border-black text-start pl-2 text-[${detailTextColor}]`}>{user.email}</td>
+                  <td className={`border-[1px] border-black text-start pl-2 text-[${detailTextColor}]`}>{user.isMarried ? 'Married' : 'Not Married Yet'}</td>
+                  <td className={`border-[1px] border-black text-start pl-2 text-[${detailTextColor}]`}>{user.programmingLanguages.join(', ')}</td>
                 </tr>
               )
             })}
