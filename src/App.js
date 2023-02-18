@@ -108,7 +108,6 @@ const App = () => {
     <>
     <div className='mx-10 my-8'>
       <h1 className='font-bold text-3xl'>List of Users</h1>
-      <h1 className={`font-bold text-3xl`}>Warna</h1>
     </div>
 
     <div className='flex gap-3 items-center mx-10 mb-5'>
@@ -117,13 +116,13 @@ const App = () => {
         name='email'
         type='text' 
         placeholder='Search email' 
-        className='placeholder:text-black border-[1px] border-black rounded pl-1 focus:outline-none'
+        className='placeholder:text-black border-[1px] border-black rounded pl-1 focus:outline-none bg-white'
         onChange={(e) => handleSearchEmail(e)}/>
       <input 
         name='programmingLanguages'
         type='text' 
         placeholder='Search programming languages' 
-        className='placeholder:text-black border-[1px] border-black rounded pl-1 w-80 focus:outline-none'
+        className='placeholder:text-black border-[1px] border-black rounded pl-1 w-80 focus:outline-none bg-white'
         onChange={(e) => handleSearchProgrammingLanguage(e)}/>
     </div>
 
@@ -131,7 +130,7 @@ const App = () => {
       <p className='w-28'>Sort By</p>
       <select
         onChange={(e) => handleSortBy(e)}
-        className='w-28 border-[1px] border-black rounded pl-1 focus:outline-none'
+        className='w-28 border-[1px] border-black rounded pl-1 focus:outline-none bg-white'
       >
         <option hidden>--Sort By--</option>
         <option value='id'>ID</option>
@@ -143,7 +142,7 @@ const App = () => {
       <p className='w-28'>Themes</p>
       <select
         onChange={(e) => handleChooseTheme(e)}
-        className='w-28 border-[1px] border-black rounded pl-1 focus:outline-none'
+        className='w-28 border-[1px] border-black rounded pl-1 focus:outline-none bg-white'
       >
         <option hidden>--Themes--</option>
         {themes.map((theme, index) => {
@@ -215,6 +214,8 @@ const App = () => {
             })}
         </tbody>
       </table>
+      {!dataUsers.length && 
+      <p className='text-center py-5'>No Result</p>}
     </div>
     </>
   );
