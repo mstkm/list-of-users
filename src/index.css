@@ -1,3 +1,55 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.darkHeaderColor {
+  background-color: #2c3e50;
+}
+.darkHeaderTextColor {
+  color: #ffffff;
+}
+.darkDetailColor {
+  background-color: #bdc3c7;
+}
+.darkDetailTextColor {
+  color: #2c3e50
+}
+
+.lightHeaderColor {
+  background-color: #bdc3c7;
+}
+.lightHeaderTextColor {
+  color: #2c3e50;
+}
+.lightDetailColor {
+  background-color: #ffffff;
+}
+.lightDetailTextColor {
+  color: #2c3e50
+}
+
+.blueHeaderColor {
+  background-color: #3498db;
+}
+.blueHeaderTextColor {
+  color: #ffffff;
+}
+.blueDetailColor {
+  background-color: #ecf0f1;
+}
+.blueDetailTextColor {
+  color: #2980b9
+}
+
+.redHeaderColor {
+  background-color: #e74c3c;
+}
+.redHeaderTextColor {
+  color: #ffffff;
+}
+.redDetailColor {
+  background-color: #ecf0f1;
+}
+.redDetailTextColor {
+  color: #c0392b
+}

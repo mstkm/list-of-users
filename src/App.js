@@ -88,34 +88,27 @@ const App = () => {
   // Themes
   // Choose Theme
   const chooseTheme = (text) => {
+    let result = {}
     for (let i = 0; i < themes.length; i++) {
       if (text === themes[i].name) {
-        return themes[i]
+        result = themes[i]
       }
     }
+    return result
   }
 
   // Handle choose theme
-  const [headerColor, setHeaderColor] = React.useState('')
-  const [headerTextColor, setHeaderTextColor] = React.useState('')
-  const [detailColor, setDetailColor] = React.useState('')
-  const [detailTextColor, setDetailTextColor] = React.useState('')
+  const [theme, setTheme] = React.useState({})
+  const headerColorStyle = `bg-[${theme.headerColor}]`
   const handleChooseTheme = (e) => {
-    setHeaderColor(chooseTheme(e.target.value).headerColor)
-    setHeaderTextColor(chooseTheme(e.target.value).headerTextColor)
-    setDetailColor(chooseTheme(e.target.value).detailColor)
-    setDetailTextColor(chooseTheme(e.target.value).detailTextColor)
+    setTheme(chooseTheme(e.target.value))
   }
-
-  console.log(headerColor)
-  console.log(headerTextColor)
-  console.log(detailColor)
-  console.log(detailTextColor)
 
   return (
     <>
     <div className='mx-10 my-8'>
       <h1 className='font-bold text-3xl'>List of Users</h1>
+      <h1 className={`font-bold text-3xl`}>Warna</h1>
     </div>
 
     <div className='flex gap-3 items-center mx-10 mb-5'>
@@ -124,13 +117,13 @@ const App = () => {
         name='email'
         type='text' 
         placeholder='Search email' 
-        className='placeholder:text-black border-[1px] border-black rounded pl-1'
+        className='placeholder:text-black border-[1px] border-black rounded pl-1 focus:outline-none'
         onChange={(e) => handleSearchEmail(e)}/>
       <input 
         name='programmingLanguages'
         type='text' 
         placeholder='Search programming languages' 
-        className='placeholder:text-black border-[1px] border-black rounded pl-1 w-80'
+        className='placeholder:text-black border-[1px] border-black rounded pl-1 w-80 focus:outline-none'
         onChange={(e) => handleSearchProgrammingLanguage(e)}/>
     </div>
 
@@ -138,7 +131,7 @@ const App = () => {
       <p className='w-28'>Sort By</p>
       <select
         onChange={(e) => handleSortBy(e)}
-        className='w-28 border-[1px] border-black rounded pl-1'
+        className='w-28 border-[1px] border-black rounded pl-1 focus:outline-none'
       >
         <option hidden>--Sort By--</option>
         <option value='id'>ID</option>
@@ -150,7 +143,7 @@ const App = () => {
       <p className='w-28'>Themes</p>
       <select
         onChange={(e) => handleChooseTheme(e)}
-        className='w-28 border-[1px] border-black rounded pl-1'
+        className='w-28 border-[1px] border-black rounded pl-1 focus:outline-none'
       >
         <option hidden>--Themes--</option>
         {themes.map((theme, index) => {
@@ -164,19 +157,59 @@ const App = () => {
     <div className='mx-10'>
       <table className='w-full'>
         <tbody className='border-[1px]'>
-          <tr className={`bg-[${headerColor}]`}>
-            <th className={`border-[1px] border-black text-start pl-2 text-[${headerTextColor}]`}>ID</th>
-            <th className={`border-[1px] border-black text-start pl-2 text-[${headerTextColor}]`}>Email</th>
-            <th className={`border-[1px] border-black text-start pl-2 text-[${headerTextColor}]`}>Marital Status</th>
-            <th className={`border-[1px] border-black text-start pl-2 text-[${headerTextColor}]`}>Programming Languages</th>
+          <tr className={
+            theme.name === 'Dark' ? 'darkHeaderColor' :
+            theme.name === 'Light' ? 'lightHeaderColor' :
+            theme.name === 'Blue' ? 'blueHeaderColor' :
+            theme.name === 'Red' ? 'redHeaderColor' : ''}>
+            <th className={`border-[1px] border-black text-start pl-2 
+            ${theme.name === 'Dark' ? 'darkHeaderTextColor' :
+            theme.name === 'Light' ? 'lightHeaderTextColor' :
+            theme.name === 'Blue' ? 'blueHeaderTextColor' :
+            theme.name === 'Red' ? 'redHeaderTextColor' : ''}`}>ID</th>
+            <th className={`border-[1px] border-black text-start pl-2 
+            ${theme.name === 'Dark' ? 'darkHeaderTextColor' :
+            theme.name === 'Light' ? 'lightHeaderTextColor' :
+            theme.name === 'Blue' ? 'blueHeaderTextColor' :
+            theme.name === 'Red' ? 'redHeaderTextColor' : ''}`}>Email</th>
+            <th className={`border-[1px] border-black text-start pl-2 
+            ${theme.name === 'Dark' ? 'darkHeaderTextColor' :
+            theme.name === 'Light' ? 'lightHeaderTextColor' :
+            theme.name === 'Blue' ? 'blueHeaderTextColor' :
+            theme.name === 'Red' ? 'redHeaderTextColor' : ''}`}>Marital Status</th>
+            <th className={`border-[1px] border-black text-start pl-2 
+            ${theme.name === 'Dark' ? 'darkHeaderTextColor' :
+            theme.name === 'Light' ? 'lightHeaderTextColor' :
+            theme.name === 'Blue' ? 'blueHeaderTextColor' :
+            theme.name === 'Red' ? 'redHeaderTextColor' : ''}`}>Programming Languages</th>
           </tr>
           {dataUsers.map((user, index) => {
               return (
-                <tr key={String(index)} className={`bg-[${detailColor}]`}>
-                  <td className={`border-[1px] border-black text-start pl-2 text-[${detailTextColor}]`}>{user.id}</td>
-                  <td className={`border-[1px] border-black text-start pl-2 text-[${detailTextColor}]`}>{user.email}</td>
-                  <td className={`border-[1px] border-black text-start pl-2 text-[${detailTextColor}]`}>{user.isMarried ? 'Married' : 'Not Married Yet'}</td>
-                  <td className={`border-[1px] border-black text-start pl-2 text-[${detailTextColor}]`}>{user.programmingLanguages.join(', ')}</td>
+                <tr key={String(index)} className={
+                  theme.name === 'Dark' ? 'darkDetailColor' :
+                  theme.name === 'Light' ? 'lightDetailColor' :
+                  theme.name === 'Blue' ? 'blueDetailColor' :
+                  theme.name === 'Red' ? 'redDetailColor' : ''}>
+                  <td className={`border-[1px] border-black text-start pl-2 
+                  ${theme.name === 'Dark' ? 'darkDetailTextColor' :
+                  theme.name === 'Light' ? 'lightDetailTextColor' :
+                  theme.name === 'Blue' ? 'blueDetailTextColor' :
+                  theme.name === 'Red' ? 'redDetailTextColor' : ''}`}>{user.id}</td>
+                  <td className={`border-[1px] border-black text-start pl-2 
+                  ${theme.name === 'Dark' ? 'darkDetailTextColor' :
+                  theme.name === 'Light' ? 'lightDetailTextColor' :
+                  theme.name === 'Blue' ? 'blueDetailTextColor' :
+                  theme.name === 'Red' ? 'redDetailTextColor' : ''}`}>{user.email}</td>
+                  <td className={`border-[1px] border-black text-start pl-2 
+                  ${theme.name === 'Dark' ? 'darkDetailTextColor' :
+                  theme.name === 'Light' ? 'lightDetailTextColor' :
+                  theme.name === 'Blue' ? 'blueDetailTextColor' :
+                  theme.name === 'Red' ? 'redDetailTextColor' : ''}`}>{user.isMarried ? 'Married' : 'Not Married Yet'}</td>
+                  <td className={`border-[1px] border-black text-start pl-2 
+                  ${theme.name === 'Dark' ? 'darkDetailTextColor' :
+                  theme.name === 'Light' ? 'lightDetailTextColor' :
+                  theme.name === 'Blue' ? 'blueDetailTextColor' :
+                  theme.name === 'Red' ? 'redDetailTextColor' : ''}`}>{user.programmingLanguages.join(', ')}</td>
                 </tr>
               )
             })}
