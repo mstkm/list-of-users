@@ -164,7 +164,7 @@ const App = () => {
     <div className='mx-10'>
       <table className='w-full'>
         <tbody className='border-[1px]'>
-          <tr className={`bg-[#3498db]`}>
+          <tr className={`bg-[#e74c3c]`}>
             <th className={`border-[1px] border-black text-start pl-2 text-[#ffffff]`}>ID</th>
             <th className={`border-[1px] border-black text-start pl-2 text-[#ffffff]`}>Email</th>
             <th className={`border-[1px] border-black text-start pl-2 text-[#ffffff]`}>Marital Status</th>
@@ -173,10 +173,10 @@ const App = () => {
           {dataUsers.map((user, index) => {
               return (
                 <tr key={String(index)} className={`bg-[#ecf0f1]`}>
-                  <td className={`border-[1px] border-black text-start pl-2 text-[#2980b9]`}>{user.id}</td>
-                  <td className={`border-[1px] border-black text-start pl-2 text-[#2980b9]`}>{user.email}</td>
-                  <td className={`border-[1px] border-black text-start pl-2 text-[#2980b9]`}>{user.isMarried ? 'Married' : 'Not Married Yet'}</td>
-                  <td className={`border-[1px] border-black text-start pl-2 text-[#2980b9]`}>{user.programmingLanguages.join(', ')}</td>
+                  <td className={`border-[1px] border-black text-start pl-2 text-[#c0392b]`}>{user.id}</td>
+                  <td className={`border-[1px] border-black text-start pl-2 text-[#c0392b]`}>{user.email}</td>
+                  <td className={`border-[1px] border-black text-start pl-2 text-[#c0392b]`}>{user.isMarried ? 'Married' : 'Not Married Yet'}</td>
+                  <td className={`border-[1px] border-black text-start pl-2 text-[#c0392b]`}>{user.programmingLanguages.join(', ')}</td>
                 </tr>
               )
             })}
