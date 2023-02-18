@@ -107,6 +107,11 @@ const App = () => {
     setDetailTextColor(chooseTheme(e.target.value).detailTextColor)
   }
 
+  console.log(headerColor)
+  console.log(headerTextColor)
+  console.log(detailColor)
+  console.log(detailTextColor)
+
   return (
     <>
     <div className='mx-10 my-8'>
