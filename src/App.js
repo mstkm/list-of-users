@@ -164,19 +164,19 @@ const App = () => {
     <div className='mx-10'>
       <table className='w-full'>
         <tbody className='border-[1px]'>
-          <tr className={`bg-[#bdc3c7]`}>
-            <th className={`border-[1px] border-black text-start pl-2 text-[#2c3e50]`}>ID</th>
-            <th className={`border-[1px] border-black text-start pl-2 text-[#2c3e50]`}>Email</th>
-            <th className={`border-[1px] border-black text-start pl-2 text-[#2c3e50]`}>Marital Status</th>
-            <th className={`border-[1px] border-black text-start pl-2 text-[#2c3e50]`}>Programming Languages</th>
+          <tr className={`bg-[#3498db]`}>
+            <th className={`border-[1px] border-black text-start pl-2 text-[#ffffff]`}>ID</th>
+            <th className={`border-[1px] border-black text-start pl-2 text-[#ffffff]`}>Email</th>
+            <th className={`border-[1px] border-black text-start pl-2 text-[#ffffff]`}>Marital Status</th>
+            <th className={`border-[1px] border-black text-start pl-2 text-[#ffffff]`}>Programming Languages</th>
           </tr>
           {dataUsers.map((user, index) => {
               return (
-                <tr key={String(index)} className={`bg-[#ffffff]`}>
-                  <td className={`border-[1px] border-black text-start pl-2 text-[#2c3e50]`}>{user.id}</td>
-                  <td className={`border-[1px] border-black text-start pl-2 text-[#2c3e50]`}>{user.email}</td>
-                  <td className={`border-[1px] border-black text-start pl-2 text-[#2c3e50]`}>{user.isMarried ? 'Married' : 'Not Married Yet'}</td>
-                  <td className={`border-[1px] border-black text-start pl-2 text-[#2c3e50]`}>{user.programmingLanguages.join(', ')}</td>
+                <tr key={String(index)} className={`bg-[#ecf0f1]`}>
+                  <td className={`border-[1px] border-black text-start pl-2 text-[#2980b9]`}>{user.id}</td>
+                  <td className={`border-[1px] border-black text-start pl-2 text-[#2980b9]`}>{user.email}</td>
+                  <td className={`border-[1px] border-black text-start pl-2 text-[#2980b9]`}>{user.isMarried ? 'Married' : 'Not Married Yet'}</td>
+                  <td className={`border-[1px] border-black text-start pl-2 text-[#2980b9]`}>{user.programmingLanguages.join(', ')}</td>
                 </tr>
               )
             })}
