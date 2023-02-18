@@ -159,7 +159,7 @@ const App = () => {
     <div className='mx-10'>
       <table className='w-full'>
         <tbody className='border-[1px]'>
-          <tr className={`bg-[${headerColor}]`}>
+          <tr className={`bg-[${String(headerColor)}]`}>
             <th className={`border-[1px] border-black text-start pl-2 text-[${headerTextColor}]`}>ID</th>
             <th className={`border-[1px] border-black text-start pl-2 text-[${headerTextColor}]`}>Email</th>
             <th className={`border-[1px] border-black text-start pl-2 text-[${headerTextColor}]`}>Marital Status</th>
